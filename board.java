@@ -10,45 +10,60 @@ Coursework - Checker's Game
 
 public class board 
 {
-    //A panel is created
-    private JPanel panel1 = new JPanel();
-    private JFrame frame1 = new JFrame();//ceating frame
-    private String[] picall;              //*********** 
-    private JButton[] grid = new JButton[64]; //this will hold the 8*8 grid
+    //The main frame is created.
+    private JFrame Mainframe= new JFrame();
+    //The main panel is created.
+    private JPanel Mainpanel = new JPanel();
+    //Array for the icons is created.
+    private String[] depictions;  
+    //Array Creation of buttons for the 8x8 grid
+    private JButton[] Maingrid = new JButton[64]; 
     
     
-    public board(){
-        frame1.setTitle("Aryan's Checkers");
-        picall = new String[] {"red.png","black.png"};
+    public board()
+    {
+        Mainframe.setTitle("Aryan's Checkers");
+        depictions = new String[] {"white.png","black.png"};
 
         for(int i = 0; i < 64; i++)
         {
             //creating an array for the image icons
-            ImageIcon[] depictions;
+            ImageIcon[] picall;
             //initialising the grid
-            grid[i]= new JButton();
-            //grid connect with the pannel
-            panel1.add(grid[i]); 
-
-            if (i == 0) {
-                grid[i].setIcon(new ImageIcon(picall[0]));
+            Maingrid[i]= new JButton();
+            //connecting the grid to the panel
+            Mainpanel.add(Maingrid[i]); 
+        for(int j = 0; j < 8; j++)
+        {
+         if ((j/2)*2 == j)
+            {
+                System.out.print("White");
+                Maingrid[(i)].setIcon(new ImageIcon(depictions[0]));
             }
-            else if ((i/2)*2 == i) {
-                grid[i].setIcon(new ImageIcon(picall[0]));
-
+            else
+            {
+                System.out.print("Black");
+                Maingrid[i].setIcon(new ImageIcon(depictions[1]));
             }
-            else {
-                grid[i].setIcon(new ImageIcon(picall[1]));
-            }
-
+           
         }
-    frame1.add(panel1); //the frame is added to the panel1
-	panel1.setLayout(new GridLayout(8,8)); //the grid layout is made 3 by 4
-	frame1.setContentPane(panel1); //updates the current layout of the panel1
-	frame1.setSize(448,363); //sets the exact size of the program according to images
-	frame1.setResizable(false); //makes it so the user can not resize the program
-	frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the program after it has been exited
-	frame1.setVisible(true); //sets the frame to visible
+        System.out.println("--");
+        }
+    //Resizing prohibited
+    Mainframe.setResizable(false); 
+    //terminates the program after it has been exited
+    Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //sets the Mainframe to be visible
+    Mainframe.setVisible(true);     
+    //the Mainframe is added to the Mainpanel
+    Mainframe.add(Mainpanel);
+    //Grid layout is set to 8x8
+    Mainpanel.setLayout(new GridLayout(8,8)); 
+    //Changning layout of Mainpanel
+    Mainframe.setContentPane(Mainpanel); 
+    //Size of the Mainframe 
+    Mainframe.setSize(500,500); 
+ 
     }
 
 
