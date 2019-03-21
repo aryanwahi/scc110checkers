@@ -84,11 +84,38 @@ public boolean canMoveto(int a,int b,int c,int d)
           return false;
  }
 
-}
+
+
+
+
 
 
    
-  
+  public boolean canWhiteCheck(int a,int b,int c,int d)
+ {
+   
+    if(a==c+1 &&(b==d-1 || b==d+1))    //white cannot do this
+         {
+        
+           return true;
+      
+         }
+          return false;
+ }
+
+  public boolean canRedCheck(int a,int b,int c,int d)
+ {
+   
+    if(a==c-1 &&(b==d+1 || b==d-1))    //white cannot do this
+         {
+        
+           return true;
+      
+         }
+          return false;
+ }
+
+}
 
 
 

@@ -2,11 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/*
-Author - Aryan Raj Wahi
-Module - SCC 110 
-Coursework - Checker's Game 
-*/
 
 public class Board implements ActionListener
 {
@@ -93,7 +88,7 @@ public class Board implements ActionListener
     private boolean movement= true;
 
 //defining a method for the movement of pieces, linking it to the actionlistner
-@Override  // to do the moves consistently, everytime a new move starts
+@Override  // to dop the moves consistently, everytime a new move starts
 public void actionPerformed(ActionEvent Clickie)
 
  {  //aware of which button is clicked on now
@@ -142,34 +137,41 @@ public void actionPerformed(ActionEvent Clickie)
  public void moveTo(int xCurrent, int yCurrent,int xDesired,int yDesired)
  {   
        //if statement to check if the first click is a white piece
-       if(Maingrid[xCurrent][yCurrent].checkForWhitePiece(Maingrid[xCurrent][yCurrent].xyz)==true) 
+      if(Maingrid[i][j].canRedCheck(xCurrent, yCurrent, xDesired, yDesired)==false) 
        {
         //if statement to check if it a valid move
         if(Maingrid[i][j].canMoveto(xCurrent, yCurrent, xDesired, yDesired)==true)
         {
-         System.out.println("Check");
-         //this is for setting the white piece      teleport
-         Maingrid[xCurrent][yCurrent].setEmptyWhiteSquare(Maingrid[xCurrent][yCurrent].xyz);
-         Maingrid[xDesired][yDesired].setWhitePiece(Maingrid[xDesired][yDesired].xyz);
+            
+            
+               System.out.println("Check");
+               //this is for setting the white piece      teleport
+               Maingrid[xCurrent][yCurrent].setEmptyWhiteSquare(Maingrid[xCurrent][yCurrent].xyz);
+               Maingrid[xDesired][yDesired].setWhitePiece(Maingrid[xDesired][yDesired].xyz);
+            
+         
         }
        }
        //if statement to check if the first click is a red piece
-       else if(Maingrid[xCurrent][yCurrent].checkForRedPiece(Maingrid[xCurrent][yCurrent].xyz)==true)           
+       if(Maingrid[i][j].canWhiteCheck(xCurrent, yCurrent, xDesired, yDesired)==false)           
        {
         //if statement to check if it a valid move  
         if(Maingrid[i][j].canMoveto(xCurrent, yCurrent, xDesired, yDesired)==true)
         {
-         System.out.println("Check2");
-         //this is for setting the red piece        teleport
-         Maingrid[xCurrent][yCurrent].setEmptyWhiteSquare(Maingrid[xCurrent][yCurrent].xyz);
-         Maingrid[xDesired][yDesired].setRedPiece(Maingrid[xDesired][yDesired].xyz);
+            
+            
+              System.out.println("Check2");
+              //this is for setting the red piece        teleport
+              Maingrid[xCurrent][yCurrent].setEmptyWhiteSquare(Maingrid[xCurrent][yCurrent].xyz);
+              Maingrid[xDesired][yDesired].setRedPiece(Maingrid[xDesired][yDesired].xyz);
+            
+         
         }
        }
        
        //to restart the moves
        p=-1; q=-1; r=-1; s=-1;
  }
-
 
 
 

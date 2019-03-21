@@ -1,6 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+/**
+*@author  Aryan Raj Wahi
+*Module - SCC 110 
+*Coursework - Checker's Game 
+*/
 
 public class Game
 {
